@@ -31,6 +31,7 @@ class Piezas
 {
   private:
   	std::vector < std::vector<Piece> > board;
+	std::vector <int> levels;
   	Piece turn;
 
   public:

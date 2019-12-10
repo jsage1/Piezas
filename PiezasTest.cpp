@@ -18,3 +18,11 @@ TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
 }
+
+TEST(PiezasTest, testingemptyboard)
+{
+	Piezas game;
+	Piece got = game.pieceAt(0,0);
+	Piece test = Blank;
+	ASSERT_EQ(got, test);
+}

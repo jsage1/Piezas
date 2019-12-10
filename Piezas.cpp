@@ -1,5 +1,4 @@
 #include "Piezas.h"
-
 #include<vector>
 
 /** CLASS Piezas
@@ -24,7 +23,27 @@
 **/
 Piezas::Piezas()
 {
+    //resizing and initializing the board
+    board.resize(3);
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        board[i].resize(4);
+    }
 
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        for(int j=0; j < (int)board[i].size();j++)
+        {
+            board[i][j] = Blank;
+        }
+    }
+
+    //resizing and initializing the iterator for levels
+    levels.resize(4);
+    for(int x = 0; x < (int)levels.size(); x++)
+    {
+        levels[x] = 0;
+    }
 }
 
 /**
@@ -54,7 +73,12 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    if(column >= 4 || row >= 3)
+    {
+        return Invalid;
+    }
+
+    return board[row][column];
 }
 
 /**

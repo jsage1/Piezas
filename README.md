@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jsage1/Piezas.svg?branch=master)](https://travis-ci.org/jsage1/Piezas) [![Coverage Status](https://coveralls.io/repos/github/jsage1/Piezas/badge.svg?branch=master)](https://coveralls.io/github/jsage1/Piezas?branch=master)
 # Piezas
 
 ## Associated Enumerated Types

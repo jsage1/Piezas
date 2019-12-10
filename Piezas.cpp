@@ -90,6 +90,7 @@ Piece Piezas::dropPiece(int column)
     }
 
     board[levels[column]][column] = current;
+    levels[column]++;
     
     return current;
 }

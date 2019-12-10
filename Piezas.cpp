@@ -89,9 +89,9 @@ Piece Piezas::dropPiece(int column)
         return Blank;
     }
 
-    board[levels[column]][column] = turn;
+    board[levels[column]][column] = current;
     
-    return turn;
+    return current;
 }
 
 /**

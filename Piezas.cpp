@@ -108,7 +108,7 @@ Piece Piezas::dropPiece(int column)
         return Invalid;
     }
 
-    if(levels[column] == 3)
+    if(levels[column] >= 3)
     {
         return Blank;
     }

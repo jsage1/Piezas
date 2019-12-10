@@ -131,20 +131,20 @@ TEST(PiezasTest, halfboardstate)
 TEST(PiezasTest, owinonhorizontal)
 {
 	Piezas game;
-	game.dropPiece(0);
-	game.dropPiece(3);
-	game.dropPiece(1);
-	game.dropPiece(3);
-	game.dropPiece(0);
-	game.dropPiece(3);
-	game.dropPiece(1);
-	game.dropPiece(2);
-	game.dropPiece(5);
-	game.dropPiece(2);
-	game.dropPiece(2);
-	game.dropPiece(1);
-	game.dropPiece(5);
-	game.dropPiece(0);
+	game.dropPiece(0);//x
+	game.dropPiece(3);//o
+	game.dropPiece(1);//x
+	game.dropPiece(3);//o
+	game.dropPiece(0);//x
+	game.dropPiece(3);//o //full3
+	game.dropPiece(1);//x
+	game.dropPiece(2);//o
+	game.dropPiece(5);//x
+	game.dropPiece(2);//o
+	game.dropPiece(2);//x
+	game.dropPiece(1);//o
+	game.dropPiece(5);//x
+	game.dropPiece(0);//o
 	Piece got = game.gameState();
 	Piece test = O;
 	ASSERT_EQ(got, test);
@@ -192,3 +192,22 @@ TEST(PiezasTest, resetgamefullboard)
 	ASSERT_EQ(got, test);
 }
 
+TEST(PiezasTest, equalhorizontal)
+{
+	Piezas game;
+	game.dropPiece(0);
+	game.dropPiece(1);
+	game.dropPiece(0);
+	game.dropPiece(1);
+	game.dropPiece(0);
+	game.dropPiece(1);
+	game.dropPiece(2);
+	game.dropPiece(3);
+	game.dropPiece(2);
+	game.dropPiece(3);
+	game.dropPiece(2);
+	game.dropPiece(3);
+	Piece got = game.gameState();
+	Piece test = Blank;
+	ASSERT_EQ(got, test);
+}

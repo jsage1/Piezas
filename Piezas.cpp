@@ -44,6 +44,10 @@ Piezas::Piezas()
     {
         levels[x] = 0;
     }
+
+    //first turn = X
+    turn = X;
+
 }
 
 /**
@@ -64,7 +68,30 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    Piece current = turn;
+
+    if(turn == X)
+    {
+        turn = O;
+    }else
+    {
+        turn = X;
+    }
+    
+
+    if(column > 3)
+    {
+        return Invalid;
+    }
+
+    if(levels[column] == 3)
+    {
+        return Blank;
+    }
+
+    board[levels[column]][column] = turn;
+    
+    return turn;
 }
 
 /**

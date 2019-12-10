@@ -128,7 +128,7 @@ TEST(PiezasTest, halfboardstate)
 	ASSERT_EQ(got, test);
 }
 
-TEST(PiezasTest, owinonvert)
+TEST(PiezasTest, owinonhorizontal)
 {
 	Piezas game;
 	game.dropPiece(0);

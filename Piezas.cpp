@@ -168,9 +168,9 @@ Piece Piezas::gameState()
             if(board[i][j] == X)
             {
                 current_x++;
-                if(current_y > max_y)
+                if(current_x > max_x)
                 {
-                    max_y = current_y;
+                    max_x = current_x;
                     
                 }
                 current_y = 0;
@@ -178,9 +178,9 @@ Piece Piezas::gameState()
             }else
             {
                 current_y++;
-                if(current_x > max_x)
+                if(current_y > max_y)
                 {
-                    max_x = current_x;
+                    max_y = current_y;
                     
                 }
                 current_x = 0;
@@ -196,9 +196,9 @@ Piece Piezas::gameState()
             if(board[i][j] == X)
             {
                 current_x++;
-                if(current_y > max_y)
+                if(current_x > max_x)
                 {
-                    max_y = current_y;
+                    max_x = current_x;
                     
                 }
                 current_y = 0;
@@ -206,9 +206,9 @@ Piece Piezas::gameState()
             }else
             {
                 current_y++;
-                if(current_x > max_x)
+                if(current_y > max_y)
                 {
-                    max_x = current_x;
+                    max_y = current_y;
                     
                 }
                 current_x = 0;

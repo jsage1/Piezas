@@ -72,3 +72,43 @@ TEST(PiezasTest, overplacing)
 	Piece test = Blank;
 	ASSERT_EQ(got, test);
 }
+
+TEST(PiezasTest, fullboardequal)
+{
+	Piezas game;
+	game.dropPiece(0);
+	game.dropPiece(0);
+	game.dropPiece(0);
+	game.dropPiece(1);
+	game.dropPiece(1);
+	game.dropPiece(1);
+	game.dropPiece(2);
+	game.dropPiece(2);
+	game.dropPiece(2);
+	game.dropPiece(3);
+	game.dropPiece(3);
+	game.dropPiece(3);
+	Piece got = game.gameState();
+	Piece test = Blank;
+	ASSERT_EQ(got, test);
+}
+
+TEST(PiezasTest, fullboardx)
+{
+	Piezas game;
+	game.dropPiece(0);
+	game.dropPiece(0);
+	game.dropPiece(1);
+	game.dropPiece(0);
+	game.dropPiece(2);
+	game.dropPiece(2);
+	game.dropPiece(3);
+	game.dropPiece(2);
+	game.dropPiece(1);
+	game.dropPiece(3);
+	game.dropPiece(1);
+	game.dropPiece(3);
+	Piece got = game.gameState();
+	Piece test = X;
+	ASSERT_EQ(got, test);
+}

@@ -56,6 +56,30 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+    //resizing and initializing the board
+    board.resize(3);
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        board[i].resize(4);
+    }
+
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        for(int j=0; j < (int)board[i].size();j++)
+        {
+            board[i][j] = Blank;
+        }
+    }
+
+    //resizing and initializing the iterator for levels
+    levels.resize(4);
+    for(int x = 0; x < (int)levels.size(); x++)
+    {
+        levels[x] = 0;
+    }
+
+    //first turn = X
+    turn = X;
 }
 
 /**
@@ -91,7 +115,7 @@ Piece Piezas::dropPiece(int column)
 
     board[levels[column]][column] = current;
     levels[column]++;
-    
+
     return current;
 }
 
@@ -120,5 +144,89 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        for(int j=0; j < (int)board[i].size();j++)
+        {
+            if(board[i][j] == Blank)
+            {
+                return Invalid;
+            }
+        }
+    }
+
+    int max_x = 0;
+    int current_x = 0;
+
+    int max_y = 0;
+    int current_y = 0;
+
+    for(int i =0; i < (int)board.size(); i++)
+    {
+        for(int j=0; j < (int)board[i].size();j++)
+        {
+            if(board[i][j] == X)
+            {
+                current_x++;
+                if(current_y > max_y)
+                {
+                    max_y = current_y;
+                    
+                }
+                current_y = 0;
+
+            }else
+            {
+                current_y++;
+                if(current_x > max_x)
+                {
+                    max_x = current_x;
+                    
+                }
+                current_x = 0;
+            }
+            
+        }
+    }   
+
+    for(int j =0; j < (int)board[0].size(); j++)
+    {
+        for(int i=0; i < (int)board.size();i++)
+        {
+            if(board[i][j] == X)
+            {
+                current_x++;
+                if(current_y > max_y)
+                {
+                    max_y = current_y;
+                    
+                }
+                current_y = 0;
+                
+            }else
+            {
+                current_y++;
+                if(current_x > max_x)
+                {
+                    max_x = current_x;
+                    
+                }
+                current_x = 0;
+            }
+            
+        }
+    } 
+
+    if(max_y == max_x)
+    {
+        return Blank;
+    }else if(max_y >= max_x)
+    {
+        return O;
+    }else
+    {
+        return X;
+    }
+    
+    
 }

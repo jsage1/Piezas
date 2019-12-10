@@ -124,7 +124,7 @@ TEST(PiezasTest, halfboardstate)
 	game.dropPiece(2);
 
 	Piece got = game.gameState();
-	Piece test = Blank;
+	Piece test = Invalid;
 	ASSERT_EQ(got, test);
 }
 
